@@ -1,12 +1,11 @@
 Summary:	Map widget for Clutter
 Name:		libchamplain
-Version:	0.3.3
+Version:	0.3.5
 Release:	1
 License:	LGPL v2
 Group:		Development/Libraries
 Source0:	http://download.gnome.org/sources/libchamplain/0.3/%{name}-%{version}.tar.bz2
-# Source0-md5:	af2cf557bfe5fb5cc6ce6f16e6cf7358
-Patch0:		%{name}-makefile.patch
+# Source0-md5:	60510ce67897515670c6aba6cd33d006
 URL:		http://projects.gnome.org/libchamplain/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -14,7 +13,9 @@ BuildRequires:	cairo-devel >= 1.4
 BuildRequires:	clutter-cairo-devel >= 0.8
 BuildRequires:	clutter-devel >= 0.8.4
 BuildRequires:	clutter-gtk-devel >= 0.8
+BuildRequires:	gir-repository-devel
 BuildRequires:	glib2-devel >= 2.16
+BuildRequires:	gobject-introspection-devel
 BuildRequires:	gtk+2-devel >= 2.10
 BuildRequires:	gtk-doc
 BuildRequires:	libtool
@@ -45,7 +46,6 @@ libchamplain API documentation.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__gtkdocize}
@@ -77,9 +77,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libchamplain-0.3.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libchamplain-0.3.so.1
+%attr(755,root,root) %ghost %{_libdir}/libchamplain-0.3.so.2
 %attr(755,root,root) %{_libdir}/libchamplain-gtk-0.3.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libchamplain-gtk-0.3.so.1
+%attr(755,root,root) %ghost %{_libdir}/libchamplain-gtk-0.3.so.2
+%{_libdir}/girepository-1.0/*.typelib
 
 %files devel
 %defattr(644,root,root,755)
@@ -91,6 +92,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/libchamplain-gtk-0.3
 %{_pkgconfigdir}/champlain-0.3.pc
 %{_pkgconfigdir}/champlain-gtk-0.3.pc
+%{_datadir}/gir-1.0/*.gir
 
 %files apidocs
 %defattr(644,root,root,755)
