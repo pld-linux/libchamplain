@@ -1,11 +1,11 @@
 Summary:	Map widget for Clutter
 Name:		libchamplain
-Version:	0.3.90
+Version:	0.4.0
 Release:	1
 License:	LGPL v2
 Group:		Development/Libraries
-Source0:	http://download.gnome.org/sources/libchamplain/0.3/%{name}-%{version}.tar.bz2
-# Source0-md5:	7a09721b41cba2947bdc9ab4216e34a9
+Source0:	http://download.gnome.org/sources/libchamplain/0.4/%{name}-%{version}.tar.bz2
+# Source0-md5:	159f8befb4b7ef616227977cda61e08d
 URL:		http://projects.gnome.org/libchamplain/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -76,22 +76,22 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/libchamplain-0.3.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libchamplain-0.3.so.3
-%attr(755,root,root) %{_libdir}/libchamplain-gtk-0.3.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libchamplain-gtk-0.3.so.3
+%attr(755,root,root) %{_libdir}/libchamplain-0.4.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libchamplain-0.4.so.0
+%attr(755,root,root) %{_libdir}/libchamplain-gtk-0.4.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libchamplain-gtk-0.4.so.0
 %{_libdir}/girepository-1.0/*.typelib
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libchamplain-0.3.so
-%attr(755,root,root) %{_libdir}/libchamplain-gtk-0.3.so
-%{_libdir}/libchamplain-0.3.la
-%{_libdir}/libchamplain-gtk-0.3.la
-%{_includedir}/libchamplain-0.3
-%{_includedir}/libchamplain-gtk-0.3
-%{_pkgconfigdir}/champlain-0.3.pc
-%{_pkgconfigdir}/champlain-gtk-0.3.pc
+%attr(755,root,root) %{_libdir}/libchamplain-0.4.so
+%attr(755,root,root) %{_libdir}/libchamplain-gtk-0.4.so
+%{_libdir}/libchamplain-0.4.la
+%{_libdir}/libchamplain-gtk-0.4.la
+%{_includedir}/libchamplain-0.4
+%{_includedir}/libchamplain-gtk-0.4
+%{_pkgconfigdir}/champlain-0.4.pc
+%{_pkgconfigdir}/champlain-gtk-0.4.pc
 %{_datadir}/gir-1.0/*.gir
 
 %files apidocs
