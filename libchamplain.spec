@@ -1,24 +1,26 @@
 Summary:	Map widget for Clutter
+Summary(pl.UTF-8):	Widget mapy dla Cluttera
 Name:		libchamplain
-Version:	0.4.0
+Version:	0.4.2
 Release:	1
 License:	LGPL v2
-Group:		Development/Libraries
-Source0:	http://download.gnome.org/sources/libchamplain/0.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	159f8befb4b7ef616227977cda61e08d
+Group:		X11/Libraries
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libchamplain/0.4/%{name}-%{version}.tar.bz2
+# Source0-md5:	20bd6c479ba4ba17d413a689d82923d9
 URL:		http://projects.gnome.org/libchamplain/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake
-BuildRequires:	cairo-devel >= 1.4
+BuildRequires:	cairo-devel >= 1.4.0
 BuildRequires:	clutter-devel >= 1.0.0
-BuildRequires:	clutter-gtk-devel >= 0.10
+BuildRequires:	clutter-gtk-devel >= 0.10.0
 BuildRequires:	gir-repository-devel
-BuildRequires:	glib2-devel >= 2.16
-BuildRequires:	gobject-introspection-devel
-BuildRequires:	gtk+2-devel >= 2.10
-BuildRequires:	gtk-doc
+BuildRequires:	glib2-devel >= 1:2.16.0
+BuildRequires:	gobject-introspection-devel >= 0.6.3
+BuildRequires:	gtk+2-devel >= 2:2.12.0
+BuildRequires:	gtk-doc >= 1.9
+BuildRequires:	libsoup-gnome-devel >= 2.26.0
 BuildRequires:	libtool
-BuildRequires:	libsoup-gnome-devel >= 2.26
+BuildRequires:	pkgconfig
 BuildRequires:	python-devel
 BuildRequires:	sqlite3-devel >= 3.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -27,21 +29,37 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Libchamplain is a C library aimed to provide a ClutterActor to display
 rasterized maps.
 
+%description -l pl.UTF-8
+Libchamplain jest biblioteką C, której celem jest dostarczenie
+interfejcu ClutterActor do wyświetlania rastrowych map.
+
 %package devel
-Summary:	Header files for the champlain library
-Group:		Development/Libraries
+Summary:	Header files for the libchamplain library
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libchamplain
+Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	clutter-devel >= 1.0.0
+Requires:	clutter-gtk-devel >= 0.10.0
+Requires:	glib2-devel >= 1:2.16.0
+Requires:	gtk+2-devel >= 2:2.12.0
 
 %description devel
-Header files for the champlain library.
+Header files for the libchamplain library.
+
+%description devel -l pl.UTF-8
+Pliki nagłówkowe biblioteki libchamplain.
 
 %package apidocs
 Summary:	libchamplain API documentation
+Summary(pl.UTF-8):	Dokumentacja API biblioteki libchamplain
 Group:		Documentation
 Requires:	gtk-doc-common
 
 %description apidocs
 libchamplain API documentation.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API biblioteki libchamplain
 
 %prep
 %setup -q
@@ -61,8 +79,6 @@ libchamplain API documentation.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-install -d $RPM_BUILD_ROOT%{_gtkdocdir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
