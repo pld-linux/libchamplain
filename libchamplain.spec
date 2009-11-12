@@ -2,7 +2,7 @@ Summary:	Map widget for Clutter
 Summary(pl.UTF-8):	Widget mapy dla Cluttera
 Name:		libchamplain
 Version:	0.4.2
-Release:	2
+Release:	3
 License:	LGPL v2
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libchamplain/0.4/%{name}-%{version}.tar.bz2
@@ -13,7 +13,6 @@ BuildRequires:	automake
 BuildRequires:	cairo-devel >= 1.4.0
 BuildRequires:	clutter-devel >= 1.0.0
 BuildRequires:	clutter-gtk-devel >= 0.10.0
-BuildRequires:	gir-repository-devel
 BuildRequires:	glib2-devel >= 1:2.16.0
 BuildRequires:	gobject-introspection-devel >= 0.6.3
 BuildRequires:	gtk+2-devel >= 2:2.12.0
