@@ -13,7 +13,9 @@ BuildRequires:	automake
 BuildRequires:	cairo-devel >= 1.4.0
 BuildRequires:	clutter-devel >= 1.0.0
 BuildRequires:	clutter-gtk-devel >= 0.10.0
+BuildRequires:	gir-repository-devel
 BuildRequires:	glib2-devel >= 1:2.16.0
+BuildRequires:	glibc-misc
 BuildRequires:	gobject-introspection-devel >= 0.6.3
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	gtk-doc >= 1.9
@@ -21,6 +23,7 @@ BuildRequires:	libsoup-gnome-devel >= 2.26.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel
+BuildRequires:	python-modules
 BuildRequires:	sqlite3-devel >= 3.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
