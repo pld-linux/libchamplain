@@ -19,15 +19,12 @@ BuildRequires:	glibc-misc
 BuildRequires:	gobject-introspection-devel >= 0.6.3
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	gtk-doc >= 1.9
-BuildRequires:	libdrm-devel
 BuildRequires:	libsoup-gnome-devel >= 2.26.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel
 BuildRequires:	python-modules
 BuildRequires:	sqlite3-devel >= 3.0
-BuildRequires:	xorg-lib-libXxf86vm-devel
-BuildRequires:	xorg-proto-dri2proto-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
