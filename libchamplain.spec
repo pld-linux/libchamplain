@@ -13,6 +13,7 @@ BuildRequires:	automake
 BuildRequires:	cairo-devel >= 1.4.0
 BuildRequires:	clutter-devel >= 1.0.0
 BuildRequires:	clutter-gtk-devel >= 0.10.0
+BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gir-repository-devel
 BuildRequires:	glib2-devel >= 1:2.16.0
 BuildRequires:	glibc-misc
@@ -25,6 +26,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	python-devel
 BuildRequires:	python-modules
 BuildRequires:	sqlite3-devel >= 3.0
+BuildRequires:	xorg-proto-glproto-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
