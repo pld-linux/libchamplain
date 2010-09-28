@@ -1,27 +1,28 @@
 Summary:	Map widget for Clutter
 Summary(pl.UTF-8):	Widget mapy dla Cluttera
 Name:		libchamplain
-Version:	0.6.1
-Release:	2
+Version:	0.8.0
+Release:	1
 License:	LGPL v2
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libchamplain/0.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	19713d18393d5d2563f8dc5cef98c847
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libchamplain/0.8/%{name}-%{version}.tar.bz2
+# Source0-md5:	55bf83ce4cd1fa13fdc5d0a5b478e323
 URL:		http://projects.gnome.org/libchamplain/
-BuildRequires:	autoconf >= 2.61
+BuildRequires:	autoconf >= 2.64
 BuildRequires:	automake
 BuildRequires:	cairo-devel >= 1.4.0
 BuildRequires:	clutter-devel >= 1.0.0
 BuildRequires:	clutter-gtk-devel >= 0.10.0
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	gir-repository-devel
 BuildRequires:	glib2-devel >= 1:2.16.0
 BuildRequires:	glibc-misc
+BuildRequires:	gnome-common
 BuildRequires:	gobject-introspection-devel >= 0.6.3
 BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	libsoup-gnome-devel >= 2.26.0
 BuildRequires:	libtool
+BuildRequires:	memphis-devel >= 0.2.1
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel
 BuildRequires:	python-modules
@@ -46,6 +47,8 @@ Requires:	clutter-devel >= 1.0.0
 Requires:	clutter-gtk-devel >= 0.10.0
 Requires:	glib2-devel >= 1:2.16.0
 Requires:	gtk+2-devel >= 2:2.12.0
+Requires:	memphis-devel >= 0.2.1
+Requires:	sqlite3-devel >= 3.0
 
 %description devel
 Header files for the libchamplain library.
@@ -98,23 +101,27 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/libchamplain-0.6.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libchamplain-0.6.so.0
-%attr(755,root,root) %{_libdir}/libchamplain-gtk-0.6.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libchamplain-gtk-0.6.so.0
-%{_libdir}/girepository-1.0/*.typelib
+%attr(755,root,root) %{_libdir}/libchamplain-0.8.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libchamplain-0.8.so.1
+%attr(755,root,root) %{_libdir}/libchamplain-gtk-0.8.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libchamplain-gtk-0.8.so.1
+%{_libdir}/girepository-1.0/Champlain-0.8.typelib
+%{_libdir}/girepository-1.0/GtkChamplain-0.8.typelib
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libchamplain-0.6.so
-%attr(755,root,root) %{_libdir}/libchamplain-gtk-0.6.so
-%{_libdir}/libchamplain-0.6.la
-%{_libdir}/libchamplain-gtk-0.6.la
-%{_includedir}/libchamplain-0.6
-%{_includedir}/libchamplain-gtk-0.6
-%{_pkgconfigdir}/champlain-0.6.pc
-%{_pkgconfigdir}/champlain-gtk-0.6.pc
-%{_datadir}/gir-1.0/*.gir
+%attr(755,root,root) %{_libdir}/libchamplain-0.8.so
+%attr(755,root,root) %{_libdir}/libchamplain-gtk-0.8.so
+%{_libdir}/libchamplain-0.8.la
+%{_libdir}/libchamplain-gtk-0.8.la
+%{_includedir}/libchamplain-0.8
+%{_includedir}/libchamplain-gtk-0.8
+%{_pkgconfigdir}/champlain-0.8.pc
+%{_pkgconfigdir}/champlain-gtk-0.8.pc
+%{_pkgconfigdir}/champlain-memphis-0.8.pc
+%{_datadir}/gir-1.0/Champlain-0.8.gir
+%{_datadir}/gir-1.0/GtkChamplain-0.8.gir
+%{_datadir}/vala/vapi/*
 
 %files apidocs
 %defattr(644,root,root,755)
