@@ -11,7 +11,7 @@ URL:		http://projects.gnome.org/libchamplain/
 BuildRequires:	autoconf >= 2.64
 BuildRequires:	automake
 BuildRequires:	cairo-devel >= 1.4.0
-BuildRequires:	clutter-devel >= 1.0.0
+BuildRequires:	clutter-devel >= 1.2.0
 BuildRequires:	clutter-gtk-devel >= 0.10.0
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	glib2-devel >= 1:2.16.0
