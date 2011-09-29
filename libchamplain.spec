@@ -1,12 +1,12 @@
 Summary:	Map widget for Clutter
 Summary(pl.UTF-8):	Widget mapy dla Cluttera
 Name:		libchamplain
-Version:	0.10.1
+Version:	0.12.0
 Release:	1
 License:	LGPL v2
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libchamplain/0.10/%{name}-%{version}.tar.bz2
-# Source0-md5:	43afb007969679338ca8d55c4eafc17d
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libchamplain/0.12/%{name}-%{version}.tar.xz
+# Source0-md5:	ebe4b826c9e3a242147243228bda4581
 URL:		http://projects.gnome.org/libchamplain/
 BuildRequires:	autoconf >= 2.64
 BuildRequires:	automake
@@ -25,7 +25,7 @@ BuildRequires:	libtool >= 2.2.6
 BuildRequires:	memphis-devel >= 0.2.1
 BuildRequires:	pkgconfig
 BuildRequires:	sqlite3-devel >= 3.0
-BuildRequires:	vala
+BuildRequires:	vala >= 0.11.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -102,24 +102,24 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/libchamplain-0.10.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libchamplain-0.10.so.0
-%attr(755,root,root) %{_libdir}/libchamplain-gtk-0.10.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libchamplain-gtk-0.10.so.0
-%{_libdir}/girepository-1.0/Champlain-0.10.typelib
-%{_libdir}/girepository-1.0/GtkChamplain-0.10.typelib
+%attr(755,root,root) %{_libdir}/libchamplain-0.12.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libchamplain-0.12.so.0
+%attr(755,root,root) %{_libdir}/libchamplain-gtk-0.12.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libchamplain-gtk-0.12.so.0
+%{_libdir}/girepository-1.0/Champlain-0.12.typelib
+%{_libdir}/girepository-1.0/GtkChamplain-0.12.typelib
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libchamplain-0.10.so
-%attr(755,root,root) %{_libdir}/libchamplain-gtk-0.10.so
-%{_includedir}/libchamplain-0.10
-%{_includedir}/libchamplain-gtk-0.10
-%{_pkgconfigdir}/champlain-0.10.pc
-%{_pkgconfigdir}/champlain-gtk-0.10.pc
-%{_pkgconfigdir}/champlain-memphis-0.10.pc
-%{_datadir}/gir-1.0/Champlain-0.10.gir
-%{_datadir}/gir-1.0/GtkChamplain-0.10.gir
+%attr(755,root,root) %{_libdir}/libchamplain-0.12.so
+%attr(755,root,root) %{_libdir}/libchamplain-gtk-0.12.so
+%{_includedir}/libchamplain-0.12
+%{_includedir}/libchamplain-gtk-0.12
+%{_pkgconfigdir}/champlain-0.12.pc
+%{_pkgconfigdir}/champlain-gtk-0.12.pc
+%{_pkgconfigdir}/champlain-memphis-0.12.pc
+%{_datadir}/gir-1.0/Champlain-0.12.gir
+%{_datadir}/gir-1.0/GtkChamplain-0.12.gir
 %{_datadir}/vala/vapi/*
 
 %files apidocs
