@@ -1,8 +1,13 @@
+#
+# Conditional build:
+%bcond_without	apidocs		# do not build and package API docs
+%bcond_without	vala		# do not build Vala API
+#
 Summary:	Map widget for Clutter
 Summary(pl.UTF-8):	Widget mapy dla Cluttera
 Name:		libchamplain
 Version:	0.12.3
-Release:	1
+Release:	2
 License:	LGPL v2
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libchamplain/0.12/%{name}-%{version}.tar.xz
@@ -25,7 +30,7 @@ BuildRequires:	libtool >= 2.2.6
 BuildRequires:	memphis-devel >= 0.2.1
 BuildRequires:	pkgconfig
 BuildRequires:	sqlite3-devel >= 3.0
-BuildRequires:	vala >= 0.11.0
+%{?with_vala:BuildRequires:	vala >= 0.11.0}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -64,7 +69,19 @@ Requires:	gtk-doc-common
 libchamplain API documentation.
 
 %description apidocs -l pl.UTF-8
-Dokumentacja API biblioteki libchamplain
+Dokumentacja API biblioteki libchamplain.
+
+%package -n vala-libchamplain
+Summary:	libchamplain API for Vala language
+Summary(pl.UTF-8):	API libchamplain dla języka Vala
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+
+%description -n vala-libchamplain
+libchamplain API for Vala language.
+
+%description -n vala-libchamplain -l pl.UTF-8
+API libchamplain dla języka Vala.
 
 %prep
 %setup -q
@@ -80,8 +97,8 @@ Dokumentacja API biblioteki libchamplain
 	--disable-static \
 	--disable-silent-rules \
 	--enable-gtk \
-	--enable-gtk-doc \
-	--enable-vala \
+	%{__enable_disable apidocs gtk-doc} \
+	%{__enable_disable vala vala} \
 	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
@@ -120,9 +137,17 @@ rm -rf $RPM_BUILD_ROOT
 %{_pkgconfigdir}/champlain-memphis-0.12.pc
 %{_datadir}/gir-1.0/Champlain-0.12.gir
 %{_datadir}/gir-1.0/GtkChamplain-0.12.gir
-%{_datadir}/vala/vapi/*
 
+%if %{with apidocs}
 %files apidocs
 %defattr(644,root,root,755)
 %{_gtkdocdir}/libchamplain
 %{_gtkdocdir}/libchamplain-gtk
+%endif
+
+%if %{with vala}
+%files -n vala-libchamplain
+%defattr(644,root,root,755)
+%{_datadir}/vala/vapi/champlain-0.12.vapi
+%{_datadir}/vala/vapi/champlain-gtk-0.12.vapi
+%endif
