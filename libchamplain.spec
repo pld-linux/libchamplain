@@ -26,11 +26,14 @@ BuildRequires:	gobject-introspection-devel >= 0.6.3
 BuildRequires:	gtk+3-devel >= 3.0.0
 BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	libsoup-gnome-devel >= 2.26.0
-BuildRequires:	libtool >= 2.2.6
+BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	memphis-devel >= 0.2.1
 BuildRequires:	pkgconfig
 BuildRequires:	sqlite3-devel >= 3.0
 %{?with_vala:BuildRequires:	vala >= 0.11.0}
+Requires:	cairo >= 1.4.0
+Requires:	glib2 >= 1:2.16.0
+Requires:	memphis >= 0.2.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -76,6 +79,7 @@ Summary:	libchamplain API for Vala language
 Summary(pl.UTF-8):	API libchamplain dla języka Vala
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
+Requires:	vala >= 0.11.0
 
 %description -n vala-libchamplain
 libchamplain API for Vala language.
@@ -94,8 +98,8 @@ API libchamplain dla języka Vala.
 %{__autoconf}
 %{__automake}
 %configure \
-	--disable-static \
 	--disable-silent-rules \
+	--disable-static \
 	--enable-gtk \
 	%{__enable_disable apidocs gtk-doc} \
 	%{__enable_disable vala vala} \
