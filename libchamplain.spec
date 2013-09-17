@@ -6,12 +6,12 @@
 Summary:	Map widget for Clutter
 Summary(pl.UTF-8):	Widget mapy dla Cluttera
 Name:		libchamplain
-Version:	0.12.4
+Version:	0.12.5
 Release:	1
 License:	LGPL v2
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libchamplain/0.12/%{name}-%{version}.tar.xz
-# Source0-md5:	f24348006d013b4ded2a4b1c237f6286
+# Source0-md5:	7cdf8e9f4120316f9feefd0fdb115972
 URL:		http://projects.gnome.org/libchamplain/
 BuildRequires:	autoconf >= 2.64
 BuildRequires:	automake
@@ -145,8 +145,8 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with apidocs}
 %files apidocs
 %defattr(644,root,root,755)
-%{_gtkdocdir}/libchamplain
-%{_gtkdocdir}/libchamplain-gtk
+%{_gtkdocdir}/libchamplain-0.12
+%{_gtkdocdir}/libchamplain-gtk-0.12
 %endif
 
 %if %{with vala}
