@@ -1,17 +1,18 @@
 #
 # Conditional build:
-%bcond_without	apidocs		# do not build and package API docs
-%bcond_without	vala		# do not build Vala API
+%bcond_without	apidocs		# API docs
+%bcond_without	memphis		# local rendering using libmemphis
+%bcond_without	vala		# Vala API
 #
 Summary:	Map widget for Clutter
 Summary(pl.UTF-8):	Widget mapy dla Cluttera
 Name:		libchamplain
-Version:	0.12.5
-Release:	2
+Version:	0.12.6
+Release:	1
 License:	LGPL v2
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libchamplain/0.12/%{name}-%{version}.tar.xz
-# Source0-md5:	7cdf8e9f4120316f9feefd0fdb115972
+# Source0-md5:	9b237602bd7c808783fbadb5e29a966a
 URL:		http://projects.gnome.org/libchamplain/
 BuildRequires:	autoconf >= 2.64
 BuildRequires:	automake
@@ -27,13 +28,13 @@ BuildRequires:	gtk+3-devel >= 3.0.0
 BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	libsoup-gnome-devel >= 2.26.0
 BuildRequires:	libtool >= 2:2.2.6
-BuildRequires:	memphis-devel >= 0.2.1
+%{?with_memphis:BuildRequires:	memphis-devel >= 0.2.1}
 BuildRequires:	pkgconfig
 BuildRequires:	sqlite3-devel >= 3.0
 %{?with_vala:BuildRequires:	vala >= 0.11.0}
 Requires:	cairo >= 1.4.0
 Requires:	glib2 >= 1:2.16.0
-Requires:	memphis >= 0.2.1
+%{?with_memphis:Requires:	memphis >= 0.2.1}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -53,7 +54,7 @@ Requires:	clutter-devel >= 1.12
 Requires:	clutter-gtk-devel >= 0.90.0
 Requires:	glib2-devel >= 1:2.16.0
 Requires:	gtk+3-devel >= 3.0.0
-Requires:	memphis-devel >= 0.2.1
+%{?with_memphis:Requires:	memphis-devel >= 0.2.1}
 Requires:	sqlite3-devel >= 3.0
 
 %description devel
@@ -102,6 +103,7 @@ API libchamplain dla języka Vala.
 	--disable-static \
 	--enable-gtk \
 	%{__enable_disable apidocs gtk-doc} \
+	%{?with_memphis:--enable-memphis} \
 	%{__enable_disable vala vala} \
 	--with-html-dir=%{_gtkdocdir}
 %{__make}
@@ -138,7 +140,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/libchamplain-gtk-0.12
 %{_pkgconfigdir}/champlain-0.12.pc
 %{_pkgconfigdir}/champlain-gtk-0.12.pc
-%{_pkgconfigdir}/champlain-memphis-0.12.pc
 %{_datadir}/gir-1.0/Champlain-0.12.gir
 %{_datadir}/gir-1.0/GtkChamplain-0.12.gir
 
