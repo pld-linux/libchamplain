@@ -7,12 +7,12 @@
 Summary:	Map widget for Clutter
 Summary(pl.UTF-8):	Widget mapy dla Cluttera
 Name:		libchamplain
-Version:	0.12.7
-Release:	2
+Version:	0.12.8
+Release:	1
 License:	LGPL v2
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libchamplain/0.12/%{name}-%{version}.tar.xz
-# Source0-md5:	a5165d0148e75adc79d0b6ca10b7f546
+# Source0-md5:	d2ea69c21ccdd9b7c2d335a02b7fad47
 URL:		https://wiki.gnome.org/Projects/libchamplain
 BuildRequires:	autoconf >= 2.64
 BuildRequires:	automake
@@ -26,7 +26,7 @@ BuildRequires:	gnome-common
 BuildRequires:	gobject-introspection-devel >= 0.6.3
 BuildRequires:	gtk+3-devel >= 3.0.0
 BuildRequires:	gtk-doc >= 1.9
-BuildRequires:	libsoup-gnome-devel >= 2.26.0
+BuildRequires:	libsoup-devel >= 2.34
 BuildRequires:	libtool >= 2:2.2.6
 %{?with_memphis:BuildRequires:	memphis-devel >= 0.2.1}
 BuildRequires:	pkgconfig
@@ -34,6 +34,7 @@ BuildRequires:	sqlite3-devel >= 3.0
 %{?with_vala:BuildRequires:	vala >= 0.11.0}
 Requires:	cairo >= 1.4.0
 Requires:	glib2 >= 1:2.16.0
+Requires:	libsoup >= 2.34
 %{?with_memphis:Requires:	memphis >= 0.2.1}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -54,6 +55,7 @@ Requires:	clutter-devel >= 1.12
 Requires:	clutter-gtk-devel >= 0.90.0
 Requires:	glib2-devel >= 1:2.16.0
 Requires:	gtk+3-devel >= 3.0.0
+Requires:	libsoup-devel >= 2.34
 %{?with_memphis:Requires:	memphis-devel >= 0.2.1}
 Requires:	sqlite3-devel >= 3.0
 
