@@ -3,12 +3,12 @@
 %bcond_without	apidocs		# API docs
 %bcond_without	memphis		# local rendering using libmemphis
 %bcond_without	vala		# Vala API
-#
+
 Summary:	Map widget for Clutter
 Summary(pl.UTF-8):	Widget mapy dla Cluttera
 Name:		libchamplain
 Version:	0.12.13
-Release:	1
+Release:	2
 License:	LGPL v2
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libchamplain/0.12/%{name}-%{version}.tar.xz
@@ -83,6 +83,9 @@ Summary(pl.UTF-8):	API libchamplain dla języka Vala
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	vala >= 0.11.0
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description -n vala-libchamplain
 libchamplain API for Vala language.
