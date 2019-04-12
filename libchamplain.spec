@@ -7,25 +7,25 @@
 Summary:	Map widget for Clutter
 Summary(pl.UTF-8):	Widget mapy dla Cluttera
 Name:		libchamplain
-Version:	0.12.15
+Version:	0.12.19
 Release:	1
 License:	LGPL v2
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libchamplain/0.12/%{name}-%{version}.tar.xz
-# Source0-md5:	0dea22ea7f50e4ab6133e73730e8f18e
+# Source0-md5:	a3015b1f32d80d65515f8042ce595b30
 URL:		https://wiki.gnome.org/Projects/libchamplain
 BuildRequires:	autoconf >= 2.64
 BuildRequires:	automake
 BuildRequires:	cairo-devel >= 1.4.0
-BuildRequires:	clutter-devel >= 1.12
-BuildRequires:	clutter-gtk-devel >= 0.90.0
+BuildRequires:	clutter-devel >= 1.24
+BuildRequires:	clutter-gtk-devel >= 1.0
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	glib2-devel >= 1:2.16.0
+BuildRequires:	glib2-devel >= 1:2.38
 BuildRequires:	glibc-misc
 BuildRequires:	gnome-common
 BuildRequires:	gobject-introspection-devel >= 0.6.3
 BuildRequires:	gtk+3-devel >= 3.0.0
-BuildRequires:	gtk-doc >= 1.9
+BuildRequires:	gtk-doc >= 1.15
 BuildRequires:	libsoup-devel >= 2.42
 BuildRequires:	libtool >= 2:2.2.6
 %{?with_memphis:BuildRequires:	memphis-devel >= 0.2.1}
@@ -33,7 +33,9 @@ BuildRequires:	pkgconfig
 BuildRequires:	sqlite3-devel >= 3.0
 %{?with_vala:BuildRequires:	vala >= 0.11.0}
 Requires:	cairo >= 1.4.0
-Requires:	glib2 >= 1:2.16.0
+Requires:	clutter >= 1.24
+Requires:	clutter-gtk >= 1.0
+Requires:	glib2 >= 1:2.38
 Requires:	libsoup >= 2.42
 %{?with_memphis:Requires:	memphis >= 0.2.1}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -51,9 +53,9 @@ Summary:	Header files for the libchamplain library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libchamplain
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	clutter-devel >= 1.12
-Requires:	clutter-gtk-devel >= 0.90.0
-Requires:	glib2-devel >= 1:2.16.0
+Requires:	clutter-devel >= 1.24
+Requires:	clutter-gtk-devel >= 1.0
+Requires:	glib2-devel >= 1:2.38
 Requires:	gtk+3-devel >= 3.0.0
 Requires:	libsoup-devel >= 2.42
 %{?with_memphis:Requires:	memphis-devel >= 0.2.1}
@@ -154,8 +156,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with apidocs}
 %files apidocs
 %defattr(644,root,root,755)
-%{_gtkdocdir}/libchamplain-0.12
-%{_gtkdocdir}/libchamplain-gtk-0.12
+%{_gtkdocdir}/champlain-0.12
 %endif
 
 %if %{with vala}
