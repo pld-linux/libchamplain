@@ -1,0 +1,24 @@
+--- libchamplain-0.12.20/docs/reference/meson.build.orig	2019-10-28 22:57:28.000000000 +0100
++++ libchamplain-0.12.20/docs/reference/meson.build	2019-10-30 18:35:52.103539121 +0100
+@@ -1,16 +1,16 @@
+ glib_prefix = glib_dep.get_pkgconfig_variable('prefix')
+-glib_docpath = join_paths(glib_prefix, 'share', 'gtk-doc', 'html', 'glib')
++glib_docpath = join_paths(glib_prefix, 'share', 'doc', 'gtk-doc', 'html', 'glib')
+ 
+ gobject_prefix = gobject_dep.get_pkgconfig_variable('prefix')
+-gobject_docpath = join_paths(gobject_prefix, 'share', 'gtk-doc', 'html', 'gobject')
++gobject_docpath = join_paths(gobject_prefix, 'share', 'doc', 'gtk-doc', 'html', 'gobject')
+ 
+ clutter_prefix = clutter_dep.get_pkgconfig_variable('prefix')
+-clutter_docpath = join_paths(clutter_prefix, 'share', 'gtk-doc', 'html', 'clutter')
++clutter_docpath = join_paths(clutter_prefix, 'share', 'doc', 'gtk-doc', 'html', 'clutter')
+ 
+ gtk_prefix = gtk_dep.get_pkgconfig_variable('prefix')
+-gtk_docpath = join_paths(gtk_prefix, 'share', 'gtk-doc', 'html', 'gtk3')
++gtk_docpath = join_paths(gtk_prefix, 'share', 'doc', 'gtk-doc', 'html', 'gtk3')
+ 
+-gtkdocdir = join_paths(datadir, 'gtk-doc', 'html', package_string)
++gtkdocdir = join_paths(datadir, 'doc', 'gtk-doc', 'html', package_string)
+ 
+ libchamplain_reference_ignored_h = [
+   'champlain-gtk.h',
