@@ -86,9 +86,7 @@ Summary:	libchamplain API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libchamplain
 Group:		Documentation
 Requires:	gtk-doc-common
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 libchamplain API documentation.
@@ -102,9 +100,7 @@ Summary(pl.UTF-8):	API libchamplain dla języka Vala
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	vala >= 0.15.1
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description -n vala-libchamplain
 libchamplain API for Vala language.
