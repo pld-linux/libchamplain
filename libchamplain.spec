@@ -1,34 +1,40 @@
 #
 # Conditional build:
 %bcond_without	apidocs		# API docs
+%bcond_with	libsoup3	# libsoup3 instead of libsoup 2.x
 %bcond_without	memphis		# local rendering using libmemphis
 %bcond_without	vala		# Vala API
 
 Summary:	Map widget for Clutter
 Summary(pl.UTF-8):	Widget mapy dla Cluttera
 Name:		libchamplain
-Version:	0.12.20
+Version:	0.12.21
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libchamplain/0.12/%{name}-%{version}.tar.xz
-# Source0-md5:	e58b364ffc2ea6bba9e58f95ee2a5229
+Source0:	https://download.gnome.org/sources/libchamplain/0.12/%{name}-%{version}.tar.xz
+# Source0-md5:	2b17ba53d88840f73f22ead3a905f475
 Patch0:		%{name}-gtkdocdir.patch
 URL:		https://wiki.gnome.org/Projects/libchamplain
 BuildRequires:	cairo-devel >= 1.4.0
 BuildRequires:	clutter-devel >= 1.24
 BuildRequires:	clutter-gtk-devel >= 1.0
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	glib2-devel >= 1:2.38
+BuildRequires:	glib2-devel >= 1:2.68
 BuildRequires:	glibc-misc
 BuildRequires:	gobject-introspection-devel >= 0.6.3
 BuildRequires:	gtk+3-devel >= 3.0.0
 BuildRequires:	gtk-doc >= 1.15
+%if %{with libsoup3}
+BuildRequires:	libsoup3-devel >= 3.0
+%else
 BuildRequires:	libsoup-devel >= 2.42
+%endif
 %{?with_memphis:BuildRequires:	memphis-devel >= 0.2.1}
 BuildRequires:	meson >= 0.49.0
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	sqlite3-devel >= 3.0
 BuildRequires:	tar >= 1:1.22
@@ -37,8 +43,12 @@ BuildRequires:	xz
 Requires:	cairo >= 1.4.0
 Requires:	clutter >= 1.24
 Requires:	clutter-gtk >= 1.0
-Requires:	glib2 >= 1:2.38
+Requires:	glib2 >= 1:2.68
+%if %{with libsoup3}
+Requires:	libsoup3 >= 3.0
+%else
 Requires:	libsoup >= 2.42
+%endif
 %{?with_memphis:Requires:	memphis >= 0.2.1}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -57,9 +67,13 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	clutter-devel >= 1.24
 Requires:	clutter-gtk-devel >= 1.0
-Requires:	glib2-devel >= 1:2.38
+Requires:	glib2-devel >= 1:2.68
 Requires:	gtk+3-devel >= 3.0.0
+%if %{with libsoup3}
+Requires:	libsoup3-devel >= 3.0
+%else
 Requires:	libsoup-devel >= 2.42
+%endif
 %{?with_memphis:Requires:	memphis-devel >= 0.2.1}
 Requires:	sqlite3-devel >= 3.0
 
