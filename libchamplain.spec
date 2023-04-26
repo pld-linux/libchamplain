@@ -129,6 +129,7 @@ API libchamplain dla języka Vala.
 %build
 %meson build \
 	%{?with_apidocs:-Dgtk_doc=true} \
+	-Dlibsoup3=%{__true_false libsoup3} \
 	%{?with_memphis:-Dmemphis=true}
 
 %ninja_build -C build
