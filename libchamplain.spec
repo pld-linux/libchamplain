@@ -1,7 +1,7 @@
 #
 # Conditional build:
 %bcond_without	apidocs		# API docs
-%bcond_with	libsoup3	# libsoup3 instead of libsoup 2.x
+%bcond_without	libsoup3	# libsoup 2.x instead of libsoup3
 %bcond_without	memphis		# local rendering using libmemphis
 %bcond_without	vala		# Vala API
 
