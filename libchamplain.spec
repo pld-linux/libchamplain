@@ -127,17 +127,17 @@ API libchamplain dla języka Vala.
 %patch -P0 -p1
 
 %build
-%meson build \
+%meson \
 	%{?with_apidocs:-Dgtk_doc=true} \
 	-Dlibsoup3=%{__true_false libsoup3} \
 	%{?with_memphis:-Dmemphis=true}
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%ninja_install -C build
+%meson_install
 
 %clean
 rm -rf $RPM_BUILD_ROOT
